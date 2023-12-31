@@ -21,7 +21,7 @@ class CustomText extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide(
                 color: Colors.blue,
-                width: 2), // Change the color and thickness here
+                width: 2.5), // Change the color and thickness here
           ),
         ),
       ),

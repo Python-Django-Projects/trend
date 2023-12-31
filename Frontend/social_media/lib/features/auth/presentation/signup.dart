@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:social_media/features/auth/presentation/forgetpassword.dart';
-import 'package:social_media/features/auth/presentation/signup.dart';
 import 'package:social_media/features/auth/widgets/customEleveatedButton.dart';
 import 'package:social_media/features/auth/widgets/customText.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,41 +27,22 @@ class LoginPage extends StatelessWidget {
                 SizedBox(height: 10),
                 CustomElevatedButton(
                   onPressed: () {},
-                  text: 'login',
+                  text: 'create account',
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ForgetPassword(),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    'forget password?',
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Color.fromARGB(255, 124, 123, 123),
-                    ),
-                  ),
+                Text(
+                  'OR',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 Spacer(flex: 1),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 15.0),
                   child: CustomElevatedButton(
-                      text: 'create account',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignUpPage(),
-                          ),
-                        );
-                      }),
+                    text: 'back to login',
+                    onPressed: () => Navigator.pop(context),
+                  ),
                 ),
               ],
             ),
