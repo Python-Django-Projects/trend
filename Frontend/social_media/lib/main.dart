@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/features/authentication/presentation/login.dart';
+import 'package:social_media/features/home/homepage.dart';
 
 void main() {
   runApp(const MyApp());

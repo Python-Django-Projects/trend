@@ -66,8 +66,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   hitText: 'password',
                   controller: passwordController,
                 ),
+                SizedBox(height: 10),
                 CustomText(
-                  hitText: 'password_confirm',
+                  hitText: 'password confirm',
                   controller: passwordConfirmController,
                 ),
                 SizedBox(height: 10),
