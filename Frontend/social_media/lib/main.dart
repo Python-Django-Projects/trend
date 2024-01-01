@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:social_media/features/auth/presentation/login.dart';
+import 'package:social_media/features/authentication/presentation/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(colorSchemeSeed: Colors.lightBlue),
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }

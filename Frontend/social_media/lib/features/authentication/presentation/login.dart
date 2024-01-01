@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:social_media/features/auth/presentation/forgetpassword.dart';
-import 'package:social_media/features/auth/presentation/signup.dart';
-import 'package:social_media/features/auth/widgets/customEleveatedButton.dart';
-import 'package:social_media/features/auth/widgets/customText.dart';
+import 'package:social_media/features/authentication/presentation/forgetpassword.dart';
+import 'package:social_media/features/authentication/presentation/signup.dart';
+import 'package:social_media/features/authentication/widgets/customEleveatedButton.dart';
+import 'package:social_media/features/authentication/widgets/customText.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:social_media/features/auth/presentation/forgetpassword.dart';
-import 'package:social_media/features/auth/presentation/login.dart';
-import 'package:social_media/features/auth/presentation/signup.dart';
-import 'package:social_media/features/auth/widgets/customEleveatedButton.dart';
-import 'package:social_media/features/auth/widgets/customText.dart';
+import 'package:social_media/features/authentication/presentation/login.dart';
+import 'package:social_media/features/authentication/widgets/customEleveatedButton.dart';
+import 'package:social_media/features/authentication/widgets/customText.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
@@ -25,10 +23,7 @@ class ForgetPassword extends StatelessWidget {
                 CustomText(hitText: 'username or email'),
                 SizedBox(height: 10),
                 SizedBox(height: 10),
-                CustomElevatedButton(
-                  onPressed: () {},
-                  text: 'reset password',
-                ),
+                CustomElevatedButton(onPressed: () {}, text: 'reset password'),
                 SizedBox(
                   height: 20,
                 ),
