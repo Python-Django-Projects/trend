@@ -15,14 +15,14 @@ TextEditingController emailController = TextEditingController();
 TextEditingController passwordController = TextEditingController();
 TextEditingController passwordConfirmController = TextEditingController();
 
-void login(String username, email, password, passwordConfirm) async {
+void login(String email, password, password2) async {
   try {
     Response response =
         await post(Uri.parse('http://127.0.0.1:8000/register/'), body: {
-      'username': username,
+      // 'username': username,
       'email': email,
       'password': password,
-      'password_confirm': passwordConfirm,
+      'password2': password2,
     });
     if (response.statusCode == 200) {
       print('account created');
@@ -52,10 +52,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 Spacer(
                   flex: 2,
                 ),
-                CustomText(
-                  hitText: 'username',
-                  controller: usernameController,
-                ),
+                // CustomText(
+                //   hitText: 'username',
+                //   controller: usernameController,
+                // ),
                 SizedBox(height: 10),
                 CustomText(
                   hitText: 'email',
@@ -77,8 +77,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     login(
                         usernameController.text.toString(),
                         emailController.text.toString(),
-                        passwordController.text.toString(),
-                        passwordConfirmController.text.toString());
+                        passwordController.text.toString());
+                    // passwordConfirmController.text.toString());
                   },
                   text: 'create account',
                 ),
