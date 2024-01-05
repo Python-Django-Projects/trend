@@ -32,7 +32,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               SizedBox(
                 height: 203,
                 width: 330,
@@ -49,8 +49,8 @@ class ProfilePage extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
                     ),
-                    SizedBox(height: 15),
-                    Row(
+                    const SizedBox(height: 15),
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
@@ -100,7 +100,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     Row(
                       children: [
                         SizedBox(
@@ -125,34 +125,26 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               GridView.count(
                 crossAxisCount: 3,
                 shrinkWrap: true,
                 children: [
-                  Container(
-                    child: Image.network(
-                      'https://www.cnet.com/a/img/resize/e8c3c0361c340d3a6d2c7f012d46d743b4893165/hub/2023/01/17/91eb6502-7246-430f-aa5f-e99f7cdea3ac/rs-2024-chevrolet-corvette-e-ray-3lz-006.jpg?auto=webp&fit=crop&height=810&width=1440',
-                      fit: BoxFit.cover,
-                    ),
+                  Image.network(
+                    'https://www.cnet.com/a/img/resize/e8c3c0361c340d3a6d2c7f012d46d743b4893165/hub/2023/01/17/91eb6502-7246-430f-aa5f-e99f7cdea3ac/rs-2024-chevrolet-corvette-e-ray-3lz-006.jpg?auto=webp&fit=crop&height=810&width=1440',
+                    fit: BoxFit.cover,
                   ),
-                  Container(
-                    child: Image.network(
-                      'https://www.cnet.com/a/img/resize/e8c3c0361c340d3a6d2c7f012d46d743b4893165/hub/2023/01/17/91eb6502-7246-430f-aa5f-e99f7cdea3ac/rs-2024-chevrolet-corvette-e-ray-3lz-006.jpg?auto=webp&fit=crop&height=810&width=1440',
-                      fit: BoxFit.cover,
-                    ),
+                  Image.network(
+                    'https://www.cnet.com/a/img/resize/e8c3c0361c340d3a6d2c7f012d46d743b4893165/hub/2023/01/17/91eb6502-7246-430f-aa5f-e99f7cdea3ac/rs-2024-chevrolet-corvette-e-ray-3lz-006.jpg?auto=webp&fit=crop&height=810&width=1440',
+                    fit: BoxFit.cover,
                   ),
-                  Container(
-                    child: Image.network(
-                      'https://www.cnet.com/a/img/resize/e8c3c0361c340d3a6d2c7f012d46d743b4893165/hub/2023/01/17/91eb6502-7246-430f-aa5f-e99f7cdea3ac/rs-2024-chevrolet-corvette-e-ray-3lz-006.jpg?auto=webp&fit=crop&height=810&width=1440',
-                      fit: BoxFit.cover,
-                    ),
+                  Image.network(
+                    'https://www.cnet.com/a/img/resize/e8c3c0361c340d3a6d2c7f012d46d743b4893165/hub/2023/01/17/91eb6502-7246-430f-aa5f-e99f7cdea3ac/rs-2024-chevrolet-corvette-e-ray-3lz-006.jpg?auto=webp&fit=crop&height=810&width=1440',
+                    fit: BoxFit.cover,
                   ),
-                  Container(
-                    child: Image.network(
-                      'https://www.cnet.com/a/img/resize/e8c3c0361c340d3a6d2c7f012d46d743b4893165/hub/2023/01/17/91eb6502-7246-430f-aa5f-e99f7cdea3ac/rs-2024-chevrolet-corvette-e-ray-3lz-006.jpg?auto=webp&fit=crop&height=810&width=1440',
-                      fit: BoxFit.cover,
-                    ),
+                  Image.network(
+                    'https://www.cnet.com/a/img/resize/e8c3c0361c340d3a6d2c7f012d46d743b4893165/hub/2023/01/17/91eb6502-7246-430f-aa5f-e99f7cdea3ac/rs-2024-chevrolet-corvette-e-ray-3lz-006.jpg?auto=webp&fit=crop&height=810&width=1440',
+                    fit: BoxFit.cover,
                   ),
                   Container(
                     child: Image.network(
@@ -201,7 +193,6 @@ class ProfilePage extends StatelessWidget {
             ],
           ),
         ),
-        backgroundColor: Colors.green,
       ),
     );
   }
