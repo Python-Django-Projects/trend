@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/features/authentication/data/remote_data_source/login.dart';
 import 'package:social_media/features/authentication/presentation/forgetpassword.dart';
-import 'package:social_media/features/authentication/presentation/signup.dart';
+import 'package:social_media/features/authentication/presentation/register.dart';
 import 'package:social_media/features/authentication/widgets/customEleveatedButton.dart';
 import 'package:social_media/features/authentication/widgets/customText.dart';
-import 'package:social_media/features/home/homepage.dart';
-import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -43,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 10),
                 CustomElevatedButton(
                   onPressed: () {
-                    _login();
+                    LoginApi().login(context);
                   },
                   text: 'login',
                 ),
@@ -55,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ForgetPassword(),
+                        builder: (context) => ForgetPassword(),
                       ),
                     );
                   },
@@ -87,39 +86,5 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-  }
-
-  Future<void> _login() async {
-    if (emailController.text.isNotEmpty && emailController.text.isNotEmpty) {
-      var response = await http.post(Uri.parse("http://127.0.0.1:8000/login/"),
-          body: {
-            'email': emailController.text,
-            'password': passController.text
-          });
-      if (response.statusCode == 200) {
-        print(response.statusCode);
-        print(response.body);
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const HomePage(),
-          ),
-        );
-      } else {
-        print(' else :${response.statusCode}');
-        print(response.body);
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Invalid Credemtials'),
-          ),
-        );
-      }
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Blank field not allowed'),
-        ),
-      );
-    }
   }
 }

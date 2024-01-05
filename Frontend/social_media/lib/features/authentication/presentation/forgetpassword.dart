@@ -1,49 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:social_media/features/authentication/presentation/login.dart';
-import 'package:social_media/features/authentication/widgets/customEleveatedButton.dart';
-import 'package:social_media/features/authentication/widgets/customText.dart';
+import 'package:http/http.dart' as http;
+import 'package:social_media/features/authentication/data/remote_data_source/forget_password.dart';
 
 class ForgetPassword extends StatelessWidget {
-  const ForgetPassword({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Password Reset App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: PasswordResetScreen(),
+    );
+  }
+}
+
+class PasswordResetScreen extends StatefulWidget {
+  @override
+  _PasswordResetScreenState createState() => _PasswordResetScreenState();
+}
+
+class _PasswordResetScreenState extends State<PasswordResetScreen> {
+  TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: Container(
-            // color: Colors.red,
-            width: 330,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Spacer(
-                  flex: 2,
-                ),
-                CustomText(hitText: 'username or email'),
-                SizedBox(height: 10),
-                SizedBox(height: 10),
-                CustomElevatedButton(onPressed: () {}, text: 'reset password'),
-                SizedBox(
-                  height: 20,
-                ),
-                Spacer(flex: 1),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 15.0),
-                  child: CustomElevatedButton(
-                      text: 'back to login',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginPage(),
-                          ),
-                        );
-                      }),
-                ),
-              ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Password Reset'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: emailController,
+              decoration: InputDecoration(labelText: 'Email'),
             ),
-          ),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                ForgetPasswordApi().resetPassword(emailController.text);
+              },
+              child: Text('re'),
+            ),
+          ],
         ),
       ),
     );

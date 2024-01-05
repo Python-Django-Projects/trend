@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:social_media/features/authentication/data/remote_data_source/register.dart';
 import 'package:social_media/features/authentication/widgets/customEleveatedButton.dart';
 import 'package:social_media/features/authentication/widgets/customText.dart';
 
@@ -15,28 +15,6 @@ TextEditingController emailController = TextEditingController();
 TextEditingController passwordController = TextEditingController();
 TextEditingController passwordConfirmController = TextEditingController();
 
-void login(String email, password, password2) async {
-  try {
-    Response response =
-        await post(Uri.parse('http://127.0.0.1:8000/register/'), body: {
-      // 'username': username,
-      'email': email,
-      'password': password,
-      'password2': password2,
-    });
-    if (response.statusCode == 200) {
-      print('account created');
-    } else {
-      print(response.statusCode);
-      print(response.body);
-      print('failed');
-    }
-  } catch (e) {
-    print(e.toString());
-    print('error');
-  }
-}
-
 class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
@@ -44,7 +22,6 @@ class _SignUpPageState extends State<SignUpPage> {
       child: Scaffold(
         body: Center(
           child: Container(
-            // color: Colors.red,
             width: 330,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -52,10 +29,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 Spacer(
                   flex: 2,
                 ),
-                // CustomText(
-                //   hitText: 'username',
-                //   controller: usernameController,
-                // ),
+                CustomText(
+                  hitText: 'username',
+                  controller: usernameController,
+                ),
                 SizedBox(height: 10),
                 CustomText(
                   hitText: 'email',
@@ -74,11 +51,19 @@ class _SignUpPageState extends State<SignUpPage> {
                 SizedBox(height: 10),
                 CustomElevatedButton(
                   onPressed: () {
-                    login(
-                        usernameController.text.toString(),
-                        emailController.text.toString(),
-                        passwordController.text.toString());
-                    // passwordConfirmController.text.toString());
+                    if (passwordController.text ==
+                        passwordConfirmController.text) {
+                      // Adjusted line: Added password confirmation check
+                      RegisterApi().register(
+                        usernameController.text,
+                        emailController.text,
+                        passwordController.text,
+                        passwordConfirmController.text,
+                      );
+                    } else {
+                      // Passwords do not match, handle accordingly (e.g., show a message).
+                      print('Passwords do not match');
+                    }
                   },
                   text: 'create account',
                 ),
