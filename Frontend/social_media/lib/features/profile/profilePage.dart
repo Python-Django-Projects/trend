@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/features/authentication/widgets/customEleveatedButton.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,96 @@ class ProfilePage extends StatelessWidget {
                 ),
               ],
             ),
-          
+            const SizedBox(height: 40),
+            SizedBox(
+              height: 203,
+              width: 330,
+              child: Column(
+                children: [
+                  const Text(
+                    'User Name',
+                    style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'I’d rather regret the things I’ve done than regret the things I haven’t done–Lucille Ball.',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+                  ),
+                  const SizedBox(height: 15),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            'Posts',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 9),
+                          Text(
+                            '100',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            'Followers',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 9),
+                          Text(
+                            '100',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            'following',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 9),
+                          Text(
+                            '100',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 15),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 40,
+                        width: 150,
+                        child: CustomElevatedButton(
+                          text: 'Follow',
+                          onPressed: () {},
+                        ),
+                      ),
+                      Spacer(),
+                      SizedBox(
+                          height: 40,
+                          width: 150,
+                          child: CustomElevatedButton(
+                            text: 'Message',
+                            onPressed: () {},
+                          ))
+                    ],
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
