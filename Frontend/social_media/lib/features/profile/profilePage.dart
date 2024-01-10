@@ -1,10 +1,37 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:social_media/features/authentication/widgets/customEleveatedButton.dart';
+import 'package:social_media/features/profile/data/models/user_profile.dart';
+import 'package:http/http.dart' as http; // Add this line
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getPosts();
+  }
+
+  @override
+  Future<UserProfile> getPosts() async {
+    final response = await http.get(
+      Uri.parse("http://127.0.0.1:8000/profile_lists"),
+    );
+
+    if (response.statusCode == 200) {
+      print(response.body);
+    }
+    return UserProfile.fromJson(jsonDecode(response.body));
+  }
+
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     return SafeArea(
